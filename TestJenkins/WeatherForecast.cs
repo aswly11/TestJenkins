@@ -3,6 +3,7 @@ namespace TestJenkins
     public class WeatherForecast
     {
         public DateTime Date { get; set; }
+        // test pipeline 
 
         public int TemperatureC { get; set; }
 
