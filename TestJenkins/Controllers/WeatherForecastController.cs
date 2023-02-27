@@ -19,15 +19,41 @@ namespace TestJenkins.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            int summ = 0;
+            var x = sum(1, 2,ref summ);
+
+            return  Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        private bool sum(int x , int y , ref int summ)
+        {
+
+            summ = x + y;
+            return true;
+
+        }
+        [HttpGet("GetMessage")]
+        public ActionResult<string> Message()
+        {
+           
+
+            return Ok("Ahmed");
+        }
+
+        [HttpGet("TestPipeLine")]
+        public ActionResult<string> PipeLine()
+        {
+
+
+            return Ok("It Works");
         }
     }
 }
