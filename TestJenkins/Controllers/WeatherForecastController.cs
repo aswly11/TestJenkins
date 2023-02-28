@@ -55,5 +55,14 @@ namespace TestJenkins.Controllers
 
             return Ok("It Works");
         }
+
+        [HttpGet("TestPipeLine3")]
+        public ActionResult<string> PipeLine3()
+        {
+
+
+            return Ok("It Works3");
+        }
+      
     }
 }
