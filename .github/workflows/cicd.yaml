@@ -17,7 +17,7 @@ jobs :
 
           - name: Restore NuGet packages
             run: dotnet restore
-            
+
           - name: Build and publish
             run:  dotnet publish -c Release -o ./publish
     
@@ -41,11 +41,11 @@ jobs :
             name: published-app
   
         - name: Deploy to SmarterASP.NET
-          uses: appleboy/ftp-action@master
+          uses: SamKirkland/FTP-Deploy-Action@4.1.1
           with:
-            ftp_server: win5229.site4now.net
-            ftp_username: mekdam1-001
-            ftp_password: piwokex702
-            local_dir: ./published-app
-            remote_dir: /wwwroot
-            timeout: 180
+            ftp-server: win5229.site4now.net
+            ftp-username: mekdam1-001
+            ftp-password: piwokex702
+            local-dir: ./published-app
+            server-dir: /wwwroot
+         
