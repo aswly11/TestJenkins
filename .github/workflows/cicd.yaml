@@ -52,5 +52,5 @@ jobs :
             username: mekdam1-001
             password: Cairo@2022
             local-dir: './TestJenkins/'
-            remote-dir: /wwwroot/site1
+            remote-dir: /site1
          
