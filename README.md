@@ -1,2 +1,4 @@
-TestJenkins
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![CI](https://github.com/aswly11/TestJenkins/actions/workflows/cicd.yaml/badge.svg)
+
+
+
