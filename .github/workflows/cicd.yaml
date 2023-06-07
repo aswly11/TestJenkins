@@ -6,24 +6,43 @@ on:
             - master
 
 jobs :
-    builds :
-        runs-on : ubuntu-latest
+    build :
+        runs-on : windows-latest
         steps:
-            - name : Check out Code 
-              uses: actions/checkout@v2
-            
-            -   name : Setup . Net 6
-                uses : actions/setup-dotnet@v1
-                with:
-                    dotnet-version : '6.0.x'
-            
-            - name : Restore Dependencies
-              run : dotnet restore
-
-            - name : Build App 
-              run : dotnet build -c Release --no-restore
-              
-
-        
- 
-        
+          - name: Checkout code
+            uses: actions/checkout@v2
+    
+          - name: Setup MSBuild
+            uses: microsoft/setup-msbuild@v1.0.2
+    
+          - name: Build and publish
+            run: msbuild /p:Configuration=Release /p:OutputPath=./publish
+    
+          - name: Store published artifacts
+            uses: actions/upload-artifact@v2
+            with:
+              name: published-app
+              path: ./publish
+    
+    deploy:
+      needs : build
+      runs-on: windows-latest
+    
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+  
+        - name: Download published artifacts
+          uses: actions/download-artifact@v2
+          with:
+            name: published-app
+  
+        - name: Deploy to SmarterASP.NET
+          uses: appleboy/ftp-action@master
+          with:
+            ftp_server: win5229.site4now.net
+            ftp_username: mekdam1-001
+            ftp_password: piwokex702
+            local_dir: ./published-app
+            remote_dir: /wwwroot
+            timeout: 180
