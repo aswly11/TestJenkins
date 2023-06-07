@@ -39,7 +39,10 @@ jobs :
           uses: actions/download-artifact@v2
           with:
             name: published-app
-  
+            
+        - name: List files in downloaded artifacts
+          run: ls -R
+
         - name: Deploy to SmarterASP.NET
           uses:  SamKirkland/FTP-Deploy-Action@master
           with:
