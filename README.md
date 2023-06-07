@@ -1,2 +1,2 @@
 TestJenkins
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/<username>/<repo_name>/<workflow_name>)
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
