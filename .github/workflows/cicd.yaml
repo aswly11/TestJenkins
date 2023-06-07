@@ -50,7 +50,7 @@ jobs :
           with:
             server: win5229.site4now.net
             username: mekdam1-001
-            password: piwokex702
+            password: Cairo@2022
             local-dir: './TestJenkins/'
             remote-dir: /wwwroot
          
