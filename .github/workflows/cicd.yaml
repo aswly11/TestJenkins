@@ -39,9 +39,11 @@ jobs :
           uses: actions/download-artifact@v2
           with:
             name: published-app
-            
+
         - name: List files in downloaded artifacts
-          run: ls -R
+          run: |
+                ls -R
+                ls -R ./published-app
 
         - name: Deploy to SmarterASP.NET
           uses:  SamKirkland/FTP-Deploy-Action@master
@@ -49,6 +51,6 @@ jobs :
             server: win5229.site4now.net
             username: mekdam1-001
             password: piwokex702
-            local-dir: ./published-app/
+            local-dir: ./published-app/TestJenkins/
             remote-dir: /wwwroot
          
