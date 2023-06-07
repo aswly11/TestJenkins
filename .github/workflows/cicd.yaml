@@ -43,9 +43,9 @@ jobs :
         - name: Deploy to SmarterASP.NET
           uses:  SamKirkland/FTP-Deploy-Action@master
           with:
-            ftp-server: win5229.site4now.net
-            ftp-username: mekdam1-001
-            ftp-password: piwokex702
+            server: win5229.site4now.net
+            username: mekdam1-001
+            password: piwokex702
             local-dir: ./published-app
-            server-dir: /wwwroot
+            remote-dir: /wwwroot
          
