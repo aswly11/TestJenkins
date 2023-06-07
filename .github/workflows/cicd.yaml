@@ -46,6 +46,6 @@ jobs :
             server: win5229.site4now.net
             username: mekdam1-001
             password: piwokex702
-            local-dir: ./published-app
+            local-dir: ./published-app/
             remote-dir: /wwwroot
          
