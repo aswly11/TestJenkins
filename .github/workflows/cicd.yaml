@@ -14,9 +14,12 @@ jobs :
     
           - name: Setup MSBuild
             uses: microsoft/setup-msbuild@v1.0.2
-    
+
+          - name: Restore NuGet packages
+            run: dotnet restore
+            
           - name: Build and publish
-            run: msbuild /p:Configuration=Release /p:OutputPath=./publish
+            run:  dotnet publish -c Release -o ./publish
     
           - name: Store published artifacts
             uses: actions/upload-artifact@v2
