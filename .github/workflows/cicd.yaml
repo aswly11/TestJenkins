@@ -41,7 +41,7 @@ jobs :
             name: published-app
   
         - name: Deploy to SmarterASP.NET
-          uses: SamKirkland/FTP-Deploy-Action@4.1.1
+          uses:  SamKirkland/FTP-Deploy-Action@master
           with:
             ftp-server: win5229.site4now.net
             ftp-username: mekdam1-001
