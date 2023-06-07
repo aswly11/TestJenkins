@@ -1,4 +1,5 @@
 TestJenkins
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/aswly11/TestJenkins/cicd.yaml)
+![CI](https://github.com/aswly11/TestJenkins/actions/workflows/cicd.yaml/badge.svg)
+
 
 
