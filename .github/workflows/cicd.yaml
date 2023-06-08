@@ -32,12 +32,16 @@ jobs :
       runs-on: windows-latest
     
       steps:
-        - name: Checkout code
+        - name: Checkout repository
           uses: actions/checkout@v2
-  
-        - name: Deploy to SmarterASP.NET
-          run : |    
-            Invoke-WebRequest -Uri "https://www.ncftp.com/libncftp/win64/ncftp-3.2.6-win64.zip" -OutFile "ncftp.zip"
-            Expand-Archive -Path "ncftp.zip" -DestinationPath "ncftp"
-            $env:PATH += ";$(PWD)/ncftp"
-            ncftpput -u mekdam1-001 -p Cairo@2022 win5229.site4now.net /site1 ./TestJenkins/          
+    
+        - name: Install MSDeploy
+          run: |
+            choco install msdeploy -y
+    
+        - name: Restore dependencies
+          run: dotnet restore
+    
+        - name: Build and publish
+          run: |
+            dotnet publish -c Release /p:PublishProfile="Properties\PublishProfiles\mekdam1-001-site1 - Web Deploy.pubxml" /p:Password="piwokex702"
