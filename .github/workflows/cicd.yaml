@@ -33,11 +33,7 @@ jobs :
     
       steps:
         - name: Checkout repository
-          uses: actions/checkout@v2
-    
-        - name: Build-Test-MSDeploy
-          uses: RahulParmarRP/dotnet-build-test-msdeploy@v0.1
-        
+          uses: actions/checkout@v2    
     
         - name: Restore dependencies
           run: dotnet restore
