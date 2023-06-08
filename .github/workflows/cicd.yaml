@@ -35,22 +35,8 @@ jobs :
         - name: Checkout code
           uses: actions/checkout@v2
   
-        - name: Download published artifacts
-          uses: actions/download-artifact@v2
-          with:
-            name: published-app
-
-        - name: List files in downloaded artifacts
-          run: |
-                ls -R
-                ls -R ./published-app
-
         - name: Deploy to SmarterASP.NET
-          uses:  SamKirkland/FTP-Deploy-Action@master
+          uses: azure/webapps-deploy@v2
           with:
-            server: win5229.site4now.net
-            username: mekdam1-001
-            password: Cairo@2022
-            local-dir: './TestJenkins/'
-            remote-dir: /site1
-         
+            app-name: mekdam1-001-site1
+            publish-profile: ${{ secrets.SMARTERASP_PUBLISH_SECRET }}
