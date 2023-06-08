@@ -35,9 +35,9 @@ jobs :
         - name: Checkout repository
           uses: actions/checkout@v2
     
-        - name: Install MSDeploy
-          run: |
-            choco install msdeploy -y
+        - name: Build-Test-MSDeploy
+          uses: RahulParmarRP/dotnet-build-test-msdeploy@v0.1
+        
     
         - name: Restore dependencies
           run: dotnet restore
