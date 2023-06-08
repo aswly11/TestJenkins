@@ -51,5 +51,6 @@ jobs :
             server: win5229.site4now.net
             username: mekdam1-001
             password: Cairo@2022
-            local-dir: ./publish/
+            local-dir: './TestJenkins/'
             remote-dir: /site1
+         
