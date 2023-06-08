@@ -53,4 +53,3 @@ jobs :
             password: Cairo@2022
             local-dir: ./publish/
             remote-dir: /site1
-         
