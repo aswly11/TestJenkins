@@ -36,8 +36,8 @@ jobs :
           uses: actions/checkout@v2
   
         - name: Deploy to SmarterASP.NET
-          run : |       
-            apt-get update
-            apt-get -y install lftp
-            lftp -e "set ftp:ssl-allow no; mirror -R ./TestJenkins/ /site1 -e; quit" -u mekdam1-001,Cairo@2022  ftp://win5229.site4now.net
-         
+          run : |    
+            Invoke-WebRequest -Uri "https://www.ncftp.com/libncftp/win64/ncftp-3.2.6-win64.zip" -OutFile "ncftp.zip"
+            Expand-Archive -Path "ncftp.zip" -DestinationPath "ncftp"
+            $env:PATH += ";$(PWD)/ncftp"
+            ncftpput -u mekdam1-001 -p Cairo@2022 win5229.site4now.net /site1 ./TestJenkins/          
