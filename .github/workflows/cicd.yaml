@@ -40,4 +40,4 @@ jobs :
     
         - name: Build and publish
           run: |
-            dotnet publish -c Release /p:PublishProfile="Properties\PublishProfiles\mekdam1-001-site1 - Web Deploy.pubxml" /p:Password="piwokex702"
+            dotnet publish -c Release /p:PublishProfile="Properties\PublishProfiles\cocifo1998-001-site1 - Web Deploy.pubxml" /p:Password="cocifo1998"
